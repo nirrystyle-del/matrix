@@ -1,0 +1,537 @@
+/* ============================================
+   PRINT-BW.CSS
+   отдельная чёрно-белая PDF-версия
+   подключается только при галочке bw
+   ============================================ */
+
+@media print {
+
+  html,
+  body.bw-mode {
+    background: #ffffff !important;
+    color: #000000 !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body.bw-mode {
+    --bg-page: #ffffff !important;
+    --bg-card: #ffffff !important;
+    --text-main: #000000 !important;
+    --text-soft: #000000 !important;
+    --accent-bronze: #000000 !important;
+    --line-soft: #000000 !important;
+  }
+
+  /* Все страницы белые */
+  body.bw-mode .report-wrapper,
+  body.bw-mode .cover-section,
+  body.bw-mode .reading-section,
+  body.bw-mode .energy-item,
+  body.bw-mode .programs-card,
+  body.bw-mode .karmic-print-page,
+  body.bw-mode .personal-print-page,
+  body.bw-mode .talents-print-page,
+  body.bw-mode .life-scenario-print-page,
+  body.bw-mode .program-print-page,
+  body.bw-mode .programs-main-title-page,
+  body.bw-mode .sexuality-print-page,
+  body.bw-mode .sexuality-main-title-page,
+  body.bw-mode .purpose-print-page,
+  body.bw-mode .financial-print-page,
+  body.bw-mode .financial-flow-print-page,
+  body.bw-mode .relationship-print-page,
+  body.bw-mode .ideal-partner-print-page,
+  body.bw-mode .life-guide-print-page,
+  body.bw-mode .period-forecast-print-page,
+  body.bw-mode .health-print-page,
+  body.bw-mode .health-section,
+  body.bw-mode .health-recommendation-page {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Текст */
+  body.bw-mode,
+  body.bw-mode p,
+  body.bw-mode li,
+  body.bw-mode span,
+  body.bw-mode div {
+    color: #000000 !important;
+  }
+
+  body.bw-mode p,
+  body.bw-mode li,
+  body.bw-mode .energy-text p,
+  body.bw-mode .program-zones p,
+  body.bw-mode .program-print-text p,
+  body.bw-mode .karmic-text p,
+  body.bw-mode .health-text p,
+  body.bw-mode .relationship-variant p,
+  body.bw-mode .forecast-energy-card p {
+    font-weight: 400 !important;
+  }
+
+  /* Заголовки и бледные/важные места жирнее */
+  body.bw-mode h1,
+  body.bw-mode h2,
+  body.bw-mode h3,
+  body.bw-mode h4,
+  body.bw-mode .program-title,
+  body.bw-mode .block-subtitle,
+  body.bw-mode .inline-subtitle,
+  body.bw-mode .scenario-subtitle,
+  body.bw-mode .strategy-heading,
+  body.bw-mode .karmic-subtitle,
+  body.bw-mode .program-print-subtitle,
+  body.bw-mode .health-subtitle,
+  body.bw-mode .health-recommendation-title,
+  body.bw-mode .program-combination,
+  body.bw-mode .karmic-combination,
+  body.bw-mode .program-repeat,
+  body.bw-mode .cover-label,
+  body.bw-mode .cover-tagline,
+  body.bw-mode .cover-date,
+  body.bw-mode .muted,
+  body.bw-mode .note,
+  body.bw-mode .note.muted,
+  body.bw-mode .tip,
+  body.bw-mode .purpose-note,
+  body.bw-mode .local-program-note,
+  body.bw-mode .relationship-entry-note,
+  body.bw-mode .talent-application,
+  body.bw-mode .health-energy-card,
+  body.bw-mode .health-recommendation-page .health-energy-card {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  body.bw-mode .note p,
+  body.bw-mode .note.muted p,
+  body.bw-mode .tip p,
+  body.bw-mode .purpose-note p,
+  body.bw-mode .local-program-note p,
+  body.bw-mode .relationship-entry-note p,
+  body.bw-mode .talent-application p,
+  body.bw-mode .health-energy-card p {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Плашки без фона, но с чёрной линией */
+  body.bw-mode .note,
+  body.bw-mode .note.muted,
+  body.bw-mode .tip,
+  body.bw-mode .purpose-note,
+  body.bw-mode .local-program-note,
+  body.bw-mode .relationship-entry-note,
+  body.bw-mode .talent-application,
+  body.bw-mode .health-energy-card,
+  body.bw-mode .health-recommendation-page .health-energy-card {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border-left: 2px solid #000000 !important;
+    border-color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  /* Не превращаем текстовые before в чёрные плашки */
+  body.bw-mode h1::before,
+  body.bw-mode h2::before,
+  body.bw-mode h3::before,
+  body.bw-mode h4::before,
+  body.bw-mode .program-title::before,
+  body.bw-mode .block-subtitle::before,
+  body.bw-mode .inline-subtitle::before,
+  body.bw-mode .karmic-subtitle::before,
+  body.bw-mode .scenario-subtitle::before,
+  body.bw-mode .strategy-heading::before {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    color: #000000 !important;
+  }
+
+  /* Декоративные линии тонкие */
+  body.bw-mode h1::after,
+  body.bw-mode h2::after,
+  body.bw-mode h3::after,
+  body.bw-mode h4::after,
+  body.bw-mode .program-title::after,
+  body.bw-mode .program-print-title-block::after,
+  body.bw-mode .programs-main-title-inner h2::after,
+  body.bw-mode .karmic-title-block::after,
+  body.bw-mode .health-recommendation-title::after {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+    height: 1px !important;
+    max-height: 1px !important;
+  }
+
+  /* Обложка */
+  body.bw-mode .cover-wings,
+  body.bw-mode .cover-wings-bottom,
+  body.bw-mode .cover-stars {
+    display: none !important;
+  }
+
+  body.bw-mode .cover-frame rect,
+  body.bw-mode .cover-frame path,
+  body.bw-mode .cover-frame line,
+  body.bw-mode .cover-vignette line {
+    stroke: #000000 !important;
+    fill: none !important;
+  }
+
+  body.bw-mode .cover-frame circle,
+  body.bw-mode .cover-vignette path {
+    stroke: #000000 !important;
+    fill: #000000 !important;
+  }
+
+  /* Матрица: строго по её реальным классам */
+  body.bw-mode .matrix-svg {
+    filter: none !important;
+  }
+
+  body.bw-mode .matrix-ring {
+    fill: none !important;
+    stroke: #000000 !important;
+    stroke-width: 1.1 !important;
+    opacity: 1 !important;
+  }
+
+  body.bw-mode .matrix-line {
+    stroke: #000000 !important;
+    stroke-width: 1.1 !important;
+    opacity: 1 !important;
+  }
+
+  body.bw-mode .matrix-node-circle {
+    fill: #ffffff !important;
+    stroke: #000000 !important;
+    stroke-width: 1.2 !important;
+    opacity: 1 !important;
+  }
+
+  body.bw-mode .matrix-node-number,
+  body.bw-mode .matrix-node-label,
+  body.bw-mode .matrix-age {
+    fill: #000000 !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  body.bw-mode .matrix-heart,
+  body.bw-mode .matrix-money,
+  body.bw-mode .matrix-symbol {
+    fill: #000000 !important;
+    color: #000000 !important;
+    stroke: none !important;
+    font-weight: 700 !important;
+  }
+
+  /* Никаких общих svg circle fill для матрицы */
+  body.bw-mode svg:not(.matrix-svg):not(.cover-frame) line,
+  body.bw-mode svg:not(.matrix-svg):not(.cover-frame) path,
+  body.bw-mode svg:not(.matrix-svg):not(.cover-frame) rect {
+    stroke: #000000 !important;
+  }
+
+  body.bw-mode svg:not(.matrix-svg):not(.cover-frame) circle,
+  body.bw-mode svg:not(.matrix-svg):not(.cover-frame) polygon {
+    stroke: #000000 !important;
+    fill: #ffffff !important;
+  }
+}
+
+/* ============================================
+   BW BACKGROUND NUCLEAR FIX
+   добивает все голубые страницы в ч/б PDF
+   ставить самым последним в print-bw.css
+   ============================================ */
+
+@page {
+  size: A4;
+  margin: 0;
+  background: #ffffff;
+}
+
+@media print {
+
+  html,
+  body,
+  body.bw-mode,
+  body.bw-mode.main-pdf-body,
+  body.bw-mode.explanation-pdf-body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  body.bw-mode .report-wrapper {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* Самое важное: все прямые страницы внутри PDF */
+  body.bw-mode .report-wrapper > *,
+  body.bw-mode .report-wrapper > section,
+  body.bw-mode .report-wrapper > div,
+  body.bw-mode section,
+  body.bw-mode article,
+  body.bw-mode .reading-section,
+  body.bw-mode .energy-item,
+  body.bw-mode .programs-card {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* Все A4-страницы по классу */
+  body.bw-mode [class*="-print-page"],
+  body.bw-mode [class*="-main-title-page"],
+  body.bw-mode [class*="-recommendation-page"],
+  body.bw-mode [class*="-section"],
+  body.bw-mode [class*="-card"] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* Точечно добиваем те, которые сейчас остались голубыми */
+  body.bw-mode section.reading-section.how-to-work,
+  body.bw-mode .reading-section.how-to-work,
+  body.bw-mode .karmic-tail-card,
+  body.bw-mode .karmic-print-page,
+  body.bw-mode .karmic-page-title,
+  body.bw-mode .karmic-page-fill,
+  body.bw-mode .karmic-page-tasks,
+  body.bw-mode .karmic-page-strengths-problems,
+  body.bw-mode .karmic-page-author-start,
+  body.bw-mode .karmic-page-author-continue {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* Если фон висит на внутренних контейнерах */
+  body.bw-mode .how-page-center,
+  body.bw-mode .how-heading,
+  body.bw-mode .how-list,
+  body.bw-mode .how-step,
+  body.bw-mode .karmic-print-inner,
+  body.bw-mode .karmic-title-block,
+  body.bw-mode .karmic-section,
+  body.bw-mode .karmic-text {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+}
+/* ============================================
+   BW EXACT PAGE BACKGROUND FIX
+   добивает карму, сексуальность, отношения и другие спец-страницы
+   ставить самым последним в print-bw.css
+   ============================================ */
+
+@media print {
+
+  /* КАРМА: перебивает .report-wrapper > .karmic-tail-card .karmic-print-page */
+  body.bw-mode .report-wrapper > .karmic-tail-card,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.karmic-tail-card,
+  body.bw-mode .report-wrapper > .karmic-tail-card .karmic-print-page,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.karmic-tail-card .karmic-print-page,
+  body.bw-mode .karmic-tail-card,
+  body.bw-mode .karmic-tail-card .karmic-print-page,
+  body.bw-mode .karmic-print-page,
+  body.bw-mode .karmic-page-title,
+  body.bw-mode .karmic-page-fill,
+  body.bw-mode .karmic-page-tasks,
+  body.bw-mode .karmic-page-strengths-problems,
+  body.bw-mode .karmic-page-author-start,
+  body.bw-mode .karmic-page-author-continue {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* СЕКСУАЛЬНОСТЬ */
+  body.bw-mode .report-wrapper > .sexuality-program-card,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.sexuality-program-card,
+  body.bw-mode .report-wrapper > .sexuality-program-card .sexuality-print-page,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.sexuality-program-card .sexuality-print-page,
+  body.bw-mode .sexuality-program-card,
+  body.bw-mode .sexuality-print-page,
+  body.bw-mode .sexuality-main-title-page,
+  body.bw-mode .sexuality-print-inner {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* КАНАЛ ОТНОШЕНИЙ */
+  body.bw-mode .report-wrapper > .relationship-card,
+  body.bw-mode .report-wrapper > .relationship-print-card,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.relationship-card,
+  body.bw-mode .report-wrapper > .energy-item.programs-card.relationship-print-card,
+  body.bw-mode .report-wrapper > .relationship-card .relationship-print-page,
+  body.bw-mode .report-wrapper > .relationship-print-card .relationship-print-page,
+  body.bw-mode .relationship-card,
+  body.bw-mode .relationship-print-card,
+  body.bw-mode .relationship-print-page,
+  body.bw-mode .relationship-print-inner,
+  body.bw-mode .relationship-print-item {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* На всякий случай: все внутренние print-page с сильной вложенностью */
+  body.bw-mode .report-wrapper .karmic-print-page,
+  body.bw-mode .report-wrapper .sexuality-print-page,
+  body.bw-mode .report-wrapper .relationship-print-page,
+  body.bw-mode .report-wrapper .financial-print-page,
+  body.bw-mode .report-wrapper .financial-flow-print-page,
+  body.bw-mode .report-wrapper .purpose-print-page,
+  body.bw-mode .report-wrapper .ideal-partner-print-page,
+  body.bw-mode .report-wrapper .life-guide-print-page,
+  body.bw-mode .report-wrapper .period-forecast-print-page,
+  body.bw-mode .report-wrapper .health-print-page {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  /* Если фон висит не на странице, а на внутренних контейнерах */
+  body.bw-mode .karmic-print-inner,
+  body.bw-mode .sexuality-print-inner,
+  body.bw-mode .relationship-print-inner,
+  body.bw-mode .financial-print-inner,
+  body.bw-mode .financial-flow-print-inner,
+  body.bw-mode .purpose-print-inner,
+  body.bw-mode .ideal-partner-print-inner,
+  body.bw-mode .life-guide-print-inner,
+  body.bw-mode .period-forecast-print-inner,
+  body.bw-mode .health-print-inner {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+}
+
+/* ============================================
+   BW SEXUALITY COVER FINAL NUCLEAR FIX
+   добивает обложку программы сексуальности
+   ставить самым последним в print-bw.css
+   ============================================ */
+
+@media print {
+
+  body.bw-mode [class*="sexuality"],
+  body.bw-mode [class*="sexuality"] *,
+  body.bw-mode [class*="sexuality"]::before,
+  body.bw-mode [class*="sexuality"]::after,
+  body.bw-mode [class*="sexuality"] *::before,
+  body.bw-mode [class*="sexuality"] *::after {
+    color: #000000 !important;
+    border-color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  body.bw-mode [class*="sexuality"],
+  body.bw-mode .sexuality-program-card,
+  body.bw-mode .sexuality-print-card,
+  body.bw-mode .sexuality-main-title-page,
+  body.bw-mode .sexuality-main-title-inner,
+  body.bw-mode .sexuality-print-page,
+  body.bw-mode .sexuality-print-inner,
+  body.bw-mode .sexuality-program-card .sexuality-main-title-page,
+  body.bw-mode .sexuality-print-card .sexuality-main-title-page,
+  body.bw-mode .report-wrapper .sexuality-main-title-page,
+  body.bw-mode .report-wrapper .sexuality-print-page {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page *,
+  body.bw-mode .sexuality-main-title-inner *,
+  body.bw-mode .sexuality-print-page *,
+  body.bw-mode .sexuality-print-inner * {
+    background-image: none !important;
+    color: #000000 !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page h1,
+  body.bw-mode .sexuality-main-title-page h2,
+  body.bw-mode .sexuality-main-title-page h3,
+  body.bw-mode .sexuality-main-title-page p,
+  body.bw-mode .sexuality-main-title-page span,
+  body.bw-mode .sexuality-main-overline,
+  body.bw-mode .sexuality-main-title,
+  body.bw-mode .sexuality-main-subtitle {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page h1::before,
+  body.bw-mode .sexuality-main-title-page h2::before,
+  body.bw-mode .sexuality-main-title-page h3::before,
+  body.bw-mode .sexuality-main-title-inner h1::before,
+  body.bw-mode .sexuality-main-title-inner h2::before,
+  body.bw-mode .sexuality-main-title-inner h3::before {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: #000000 !important;
+    border: none !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page h1::after,
+  body.bw-mode .sexuality-main-title-page h2::after,
+  body.bw-mode .sexuality-main-title-page h3::after,
+  body.bw-mode .sexuality-main-title-inner h1::after,
+  body.bw-mode .sexuality-main-title-inner h2::after,
+  body.bw-mode .sexuality-main-title-inner h3::after {
+    content: "" !important;
+    display: block !important;
+    width: 42px !important;
+    height: 1px !important;
+    max-height: 1px !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border: none !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page svg,
+  body.bw-mode .sexuality-main-title-inner svg,
+  body.bw-mode .sexuality-print-page svg,
+  body.bw-mode .sexuality-print-inner svg {
+    color: #000000 !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page svg path,
+  body.bw-mode .sexuality-main-title-page svg line,
+  body.bw-mode .sexuality-main-title-page svg rect,
+  body.bw-mode .sexuality-main-title-inner svg path,
+  body.bw-mode .sexuality-main-title-inner svg line,
+  body.bw-mode .sexuality-main-title-inner svg rect {
+    stroke: #000000 !important;
+    fill: none !important;
+  }
+
+  body.bw-mode .sexuality-main-title-page svg circle,
+  body.bw-mode .sexuality-main-title-inner svg circle {
+    stroke: #000000 !important;
+    fill: #ffffff !important;
+  }
+}

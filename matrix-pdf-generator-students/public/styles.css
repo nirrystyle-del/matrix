@@ -1,0 +1,2314 @@
+/* ============================================
+   STYLES.CSS — оформление PDF-разбора
+   ШАГ 2A.1: база + обложка + Jak pracovat + защита от вылезания
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-page: #E8EFF4;
+  --bg-card: #FFFFFF;
+  --text-main: #1F2942;
+  --text-soft: #5A7494;
+  --accent-bronze: #9C7838;
+  --line-soft: #C8D4DE;
+
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ==== ОБЁРТКА И ЗАЩИТА ОТ ВЫЛЕЗАНИЯ ==== */
+
+.report-wrapper {
+  width: 794px;
+  margin: 0 auto;
+  background: var(--bg-page);
+  padding: 0 56px 80px;
+  overflow: hidden;
+}
+
+.report-wrapper * {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.report-wrapper img,
+.report-wrapper svg,
+.report-wrapper table {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==== ТИПОГРАФИКА ==== */
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-top: 0;
+  letter-spacing: -0.005em;
+}
+
+h1 {
+  font-size: 46px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 12px;
+  margin: 28px 0 12px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-bronze);
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+/* ==== ОБЛОЖКА ==== */
+
+.cover-section {
+  position: relative;
+  width: 100%;
+  height: 1123px;
+  padding: 32px 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* рамка */
+
+.cover-frame {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* крылья */
+
+.cover-wings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* контент */
+
+.cover-inner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  padding: 24px 30px;
+}
+
+.cover-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 14px;
+}
+
+.cover-section h1 {
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.cover-section h1::after {
+  display: none !important;
+}
+
+/* виньетка */
+
+.cover-vignette {
+  display: block;
+  width: 100px;
+  height: 20px;
+  margin: 4px auto;
+}
+
+.cover-tagline {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+  margin: 2px 0 12px;
+}
+
+/* матрица */
+
+.cover-section .matrix-chart-section {
+  width: 100%;
+  margin: 0;
+}
+
+.cover-section .matrix-chart-wrap {
+  width: 100%;
+}
+
+.cover-section .matrix-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* имя и дата */
+
+.cover-client {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.cover-name-text {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.cover-name-flourish {
+  width: 45px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.cover-date {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--accent-bronze);
+  letter-spacing: 0.25em;
+  margin: 0;
+}
+
+/* ==== РАЗДЕЛЫ ==== */
+
+.reading-section {
+  margin: 80px 0 40px;
+}
+
+.reading-section h2 {
+  margin-bottom: 48px;
+}
+
+/* ==== JAK PRACOVAT S ROZBOREM (шаги) ==== */
+
+.how-to-work {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.how-list {
+  display: block;
+}
+
+.how-step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.how-step:last-child {
+  border-bottom: none;
+}
+
+.how-number {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--accent-bronze);
+  line-height: 1;
+  text-align: center;
+}
+
+.how-content h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.how-content p {
+  font-size: 15px;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ==== КАРТОЧКИ (пока минимально) ==== */
+
+.program-found-item,
+.purpose-card,
+.relationship-card,
+.health-frame-item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.energy-item {
+  margin-bottom: 32px;
+}
+
+.programs-card {
+  background: var(--bg-card);
+  padding: 48px 56px;
+  border-radius: 0;
+  margin-bottom: 24px;
+}
+
+/* ==== СТАРЫЕ КЛАССЫ (оставляем работающими) ==== */
+
+.program-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  font-family: var(--font-serif);
+}
+
+.program-repeat.single,
+.relationship-gender-label {
+  display: none;
+}
+
+.programs-intro {
+  display: none;
+}
+
+.health-energy-label,
+.health-energy-number {
+  display: none;
+}
+
+.health-body-part {
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: var(--text-main);
+}
+
+.health-values-grid {
+  display: block;
+}
+
+.health-energy-card {
+  margin-top: 22px;
+}
+
+.purpose-note {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: rgba(156, 120, 56, 0.08);
+  border-left: 2px solid var(--accent-bronze);
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.note.muted {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: rgba(156, 120, 56, 0.08);
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.muted {
+  color: var(--text-soft);
+}
+
+/* ============================================
+   ШАГ 2A.2 — KARMICKÝ OCAS, PROGRAMY, общие классы
+   .program-found-item / .program-title / .program-combination / .energy-text
+   ============================================ */
+
+/* Карточка кармического хвоста и программ.
+   У них одинаковая обёртка .programs-card — она уже стилизована в шаге 2A.1.
+   Здесь оформляем содержимое: заголовок программы, число-комбинация, текст. */
+
+.karmic-tail-card h2,
+.programs-full-card h2,
+.period-forecast-intro h2 {
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.karmic-tail-card h2::after,
+.programs-full-card h2::after,
+.period-forecast-intro h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Заголовок одной программы / кармы (название) */
+.program-found-item {
+  margin-bottom: 8px;
+}
+
+.program-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text-main);
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+/* Числовая комбинация рядом с названием — мелким, бронзовым, без рамок */
+.program-combination {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--accent-bronze);
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Подпись "Tento program se ve vaší matici opakuje 3×" */
+.program-repeat {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+/* Основной текст энергии — самое важное, чтобы читалось хорошо */
+.energy-text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-main);
+}
+
+.energy-text p {
+  margin: 0 0 14px;
+}
+
+.energy-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Между несколькими программами в одной общей карточке (programs-full-card)
+   нужны разделители, иначе они сливаются. */
+.programs-full-card .program-found-item + .program-found-item,
+.programs-full-card .program-full-item + .program-full-item {
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid var(--line-soft);
+}
+/* ============================================
+   ШАГ 2A.3 (исправленный) — OSOBNÍ VLASTNOSTI
+   ============================================ */
+
+/* Заголовок "Osobní vlastnosti" с чертой */
+.personal-section-card h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.personal-section-card h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Подзаголовок коммуникации "Jak komunikujete..." с тонкой чертой сверху */
+/* Подзаголовок коммуникации "Jak komunikujete..." — крупный сериф с двумя черточками */
+.personal-section-card .program-title,
+.communication-inner-block .program-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 64px;
+  margin-bottom: 32px;
+  padding-top: 32px;
+  padding-bottom: 18px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.personal-section-card .program-title::before,
+.communication-inner-block .program-title::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.personal-section-card .program-title::after,
+.communication-inner-block .program-title::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.communication-inner-block {
+  margin-top: 8px;
+}
+
+/* ==== Личные качества — лежат внутри personal-section-card ==== */
+/* Сейчас каждая .personal-quality-card имеет свой padding-блок,
+   а ещё она внутри programs-card, которая тоже имеет padding.
+   Решение: внутри personal-section-card убираем у вложенных карточек
+   собственный padding слева и справа, чтобы они прилегали к стенкам общей карточки. */
+
+.personal-section-card .personal-qualities-section {
+  margin-top: 48px;
+}
+
+.personal-section-card .personal-quality-card {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  background: transparent;        /* фон уже даёт общая карточка */
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Между карточками качеств — тонкая разделительная линия */
+.personal-section-card .personal-quality-card + .personal-quality-card {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Подзаголовки внутри карточек качеств — это просто абзацы вида
+   "Jádro energie.", "Pokud jste v pozitivním stavu (+):" и т.п.
+   Они в HTML — просто <p>...</p>. Чтобы они смотрелись как метки,
+   ставим селектор по содержимому абзаца через :where() не сработает —
+   ищем по позиции: первый, и каждый, который короткий и заканчивается двоеточием
+   или точкой. Но это слишком нестабильно. Поэтому используем простой приём:
+   первый <p> в каждой карточке + все <p>, которые имеют ровно одно предложение. */
+
+/* Вместо этого делаем простую вещь: первый абзац в каждой карточке
+   качеств — это всегда заголовок типа "Jádro energie." */
+.personal-quality-card .energy-text > p:first-child {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+}
+
+/* "Pokud jste v pozitivním stavu (+):" и подобные подзаголовки
+   тоже короткие <p> — но они не первые, поэтому отдельного селектора
+   на них пока нет. Если вышлешь скрин с HTML-инспектора (F12), 
+   я подберу. Пока оставим их обычным текстом — это неидеально,
+   но не сломано. */
+
+/* Заметки внутри качеств */
+.personal-quality-card .note.muted {
+  margin-top: 24px;
+  font-style: normal;
+}
+/* ============================================
+   ВРЕМЕННЫЙ ПЕРЕКЛЮЧАТЕЛЬ — голубой фон вместо белых карточек
+   Чтобы вернуть белые карточки — просто удали этот блок целиком.
+   ============================================ */
+
+.programs-card,
+.personal-quality-card,
+.period-forecast-card {
+  background: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Между карточками теперь нет визуальных границ — добавим воздуха
+   и тонкие разделительные линии, чтобы блоки не сливались */
+.energy-item.programs-card {
+  margin-bottom: 56px;
+  padding-top: 32px;
+  padding-bottom: 0;
+}
+
+.energy-item.programs-card + .energy-item.programs-card {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 56px;
+}
+/* ============================================
+   ШАГ 2A.4 — БРОНЗОВЫЕ ПОДЗАГОЛОВКИ И ЦИФРЫ ЭНЕРГИЙ
+   .block-subtitle (Pokud jste..., Doporučení:, Silné stránky:)
+   .energy-marker ((10), (9), (8) в начале абзацев)
+   ============================================ */
+
+/* Подзаголовки внутри текстовых блоков */
+.block-subtitle {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-bronze);
+  margin-top: 32px;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+/* Если block-subtitle идёт сразу первым в карточке — без верхнего отступа */
+.energy-text > .block-subtitle:first-child,
+.purpose-text > .block-subtitle:first-child,
+.program-full-text > .block-subtitle:first-child {
+  margin-top: 0;
+}
+
+/* Цифра энергии в скобках — (10), (9) и т.д. — в начале абзацев */
+.energy-marker {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent-bronze);
+  letter-spacing: 0.02em;
+  margin-right: 4px;
+}
+
+/* Специальные h4-подзаголовки в health (Zdravotní problémy, Příčiny и т.д.) */
+.health-subtitle {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-bronze);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+/* Inline-подзаголовки внутри абзацев (Pozitivní:, Negativní:, и т.п. с переносом) */
+.inline-subtitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-bronze);
+  margin-top: 16px;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+/* Большой заголовок секции внутри текста (например, "Moje autorské vnímání této karmy") */
+span.section-heading {
+  display: block;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin: 48px auto 24px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+span.section-heading::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Когда section-heading лежит внутри <p> — пусть он рвёт абзац */
+p span.section-heading {
+  display: block;
+}
+/* Вступительная заметка под "Osobní vlastnosti" — курсивом, поменьше, приглушённого цвета */
+.intro-note {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-soft);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  padding: 0 8px;
+  line-height: 1.7;
+}
+
+.intro-note p {
+  margin-bottom: 12px;
+}
+
+.intro-note p:last-child {
+  margin-bottom: 0;
+}
+/* ============================================
+   ТАЛАНТЫ — раздел "Vaše talenty"
+   ============================================ */
+
+/* Главный заголовок раздела с бронзовой чёрточкой */
+/* Главный заголовок раздела "Vaše talenty" — крупный, с двойной чертой */
+.talents-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.talents-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.talents-card h2::before {
+  content: "TALENTY";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Подзаголовки талантов "Váš hlavní talent" — поменьше, без черты, мягче */
+.talents-card .program-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-soft);
+  margin-top: 64px;
+  margin-bottom: 24px;
+  padding-top: 0;
+  letter-spacing: 0.02em;
+}
+
+.talents-card .program-title::before {
+  display: none;
+}
+
+.talents-card .program-found-item:first-child .program-title {
+  margin-top: 24px;
+}
+/* Заметка о применении таланта (последний абзац в каждом таланте) */
+.talents-card .talent-application {
+  margin-top: 28px;
+  padding: 20px 24px;
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  border-left: 2px solid var(--accent-bronze);
+  background: rgba(156, 120, 56, 0.05);
+}
+/* ============================================
+   ŽIVOTNÍ SCÉNÁŘ — раздел жизненного сценария
+   ============================================ */
+
+/* Уровень 1 — главный заголовок раздела */
+.life-scenario-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.life-scenario-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.life-scenario-card h2::before {
+  content: "SCÉNÁŘ";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Уровень 2 — название стратегии (Strategie zachraňování...) */
+.life-scenario-card .strategy-heading {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 64px;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.life-scenario-card .strategy-heading::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.life-scenario-card .energy-text > .strategy-heading:first-child {
+  margin-top: 16px;
+}
+
+/* Уровень 3 — мелкие подзаголовки внутри стратегии (Signály, Nová strategie, Kroky) */
+.life-scenario-card .scenario-subtitle {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+/* Список пунктов под подзаголовком — компактнее, ближе друг к другу */
+.life-scenario-card .scenario-subtitle + p,
+.life-scenario-card p + p {
+  text-align: center;
+}
+
+.life-scenario-card .energy-text p {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.life-scenario-card .scenario-subtitle + p {
+  margin-top: 0;
+}
+.life-scenario-card span.scenario-subtitle {
+  display: block;
+}
+/* ============================================
+   MATRIX CHART — визуальная схема матрицы
+   ============================================ */
+
+.matrix-chart-section {
+  margin: 80px 0 56px;
+  padding-top: 32px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.matrix-chart-section h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.matrix-chart-section h2::before {
+  content: "MATRIX";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.matrix-chart-section h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.matrix-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  margin: 36px auto 44px;
+}
+
+.matrix-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+}
+
+.matrix-point {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-bronze);
+  background: rgba(255, 255, 255, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-main);
+}
+
+.matrix-point-value {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-main);
+}
+
+.matrix-point-label {
+  margin-top: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-soft);
+}
+
+.center-point {
+  width: 94px;
+  height: 94px;
+  background: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.center-point .matrix-point-value,
+.center-point .matrix-point-label {
+  color: #ffffff;
+}
+
+.main-point {
+  border-width: 2px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.small-point {
+  width: 62px;
+  height: 62px;
+}
+
+.small-point .matrix-point-value {
+  font-size: 24px;
+}
+
+.matrix-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  max-width: 520px;
+  margin: 34px auto 0;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.matrix-extra-grid strong {
+  color: var(--accent-bronze);
+  font-weight: 500;
+}
+/* ============================================
+   MATRIX CHART
+   ============================================ */
+
+.matrix-chart-section {
+  margin: 70px auto 80px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.matrix-chart-section h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 18px;
+  padding-bottom: 24px;
+  position: relative;
+}
+
+.matrix-chart-section h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.matrix-chart-wrap {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.matrix-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.matrix-summary {
+  max-width: 520px;
+  margin: 28px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 48px;
+  text-align: left;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.matrix-summary strong {
+  color: var(--accent-bronze);
+  font-weight: 600;
+}
+
+.matrix-summary div:last-child {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+/* ============================================
+   MATRIX CHART
+   ============================================ */
+
+.matrix-chart-section {
+  margin: 80px 0 90px;
+  text-align: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.matrix-chart-section h2 {
+  margin-bottom: 28px;
+}
+
+.matrix-chart-section h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  margin: 22px auto 0;
+}
+
+.matrix-chart-wrap {
+  width: 100%;
+  max-width: 610px;
+  margin: 0 auto;
+}
+
+.matrix-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.matrix-ring {
+  fill: none;
+  stroke: rgba(31, 41, 66, 0.65);
+  stroke-width: 1.3;
+}
+
+.matrix-line {
+  stroke: rgba(31, 41, 66, 0.72);
+  stroke-width: 1.4;
+}
+
+.matrix-node-circle {
+  stroke: #9C7838;
+  stroke-width: 2;
+}
+
+.matrix-node-number {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.matrix-node-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  opacity: 0.85;
+}
+
+.matrix-symbol {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.matrix-heart {
+  fill: #D84A4A;
+}
+
+.matrix-money {
+  fill: #2F9A4A;
+}
+
+.matrix-age {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text-main);
+  text-anchor: middle;
+}
+
+.matrix-summary {
+  max-width: 520px;
+  margin: 26px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+  text-align: left;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.matrix-summary strong {
+  color: var(--accent-bronze);
+  font-weight: 600;
+}
+
+.matrix-summary div:last-child {
+  grid-column: 1 / -1;
+}
+.cover-section .matrix-chart-section {
+  margin: 40px auto 36px;
+  padding: 0;
+}
+
+.cover-section .matrix-chart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-section .matrix-svg {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.cover-section .matrix-chart-section h2,
+.cover-section .matrix-chart-section::before,
+.cover-section .matrix-chart-section h2::before,
+.cover-section .matrix-chart-section h2::after {
+  display: none !important;
+  content: none !important;
+}
+
+.cover-client {
+  margin-top: 24px;
+}
+/* ============================================
+   VAŠE POSLÁNÍ — раздел "Účel vaší duše" и т.д.
+   ============================================ */
+
+/* Уровень 1 — главный заголовок раздела */
+.purpose-section h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.purpose-section h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.purpose-section h2::before {
+  content: "POSLÁNÍ";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Уровень 2 — подзаголовки внутри (Účel vaší duše, Profese..., Předkové...) */
+.purpose-card h3 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 56px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.purpose-card h3::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Если purpose-card первый — без верхнего отступа h3 */
+.purpose-section .purpose-card:first-of-type h3 {
+  margin-top: 16px;
+}
+/* ============================================
+   FINANČNÍ KANÁL — раздел финансового канала
+   ============================================ */
+
+/* Главный заголовок раздела */
+.financial-channel-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.financial-channel-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.financial-channel-card h2::before {
+  content: "FINANCE";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Воздух между блоками энергий внутри финансового канала */
+.financial-channel-card .program-found-item + .program-found-item {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ============================================
+   LOCAL-PROGRAM-NOTE — заметка про программу
+   (используется в financial-channel, financial-flow, relationship и др.)
+   ============================================ */
+
+.local-program-note {
+  margin-top: 48px;
+  padding: 24px 28px;
+  background: rgba(156, 120, 56, 0.06);
+  border-left: 2px solid var(--accent-bronze);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.local-program-note p:first-child {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.local-program-note p:first-child strong {
+  font-weight: inherit;
+}
+
+.local-program-note p {
+  margin: 0 0 6px;
+}
+
+.local-program-note p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.local-program-note .program-combination {
+  font-size: 12px;
+  margin-left: 4px;
+}
+/* ============================================
+   FINANČNÍ TOK — раздел финансового потока
+   ============================================ */
+
+/* Главный заголовок раздела */
+.financial-flow-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.financial-flow-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.financial-flow-card h2::before {
+  content: "FINANČNÍ TOK";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Подразделы "Zhoršuje" / "Zlepšuje" */
+.financial-flow-section {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-soft);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.financial-flow-section:first-of-type {
+  margin-top: 16px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.financial-flow-section h4 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  position: relative;
+  text-transform: none;
+  letter-spacing: 0.005em;
+}
+
+.financial-flow-section h4::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* ============================================
+   VZTAHOVÝ KANÁL — раздел отношений
+   ============================================ */
+
+/* Главный заголовок раздела */
+.relationship-card.relationship-intro h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.relationship-card.relationship-intro h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.relationship-card.relationship-intro h2::before {
+  content: "VZTAHY";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Между вариантами текста (мужская/женская) — тонкая линия и воздух */
+.relationship-variant + .relationship-variant {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Между блоками энергий внутри отношений */
+.relationship-channel-section .relationship-card + .relationship-card {
+  margin-top: 24px;
+}
+/* ============================================
+   IDEÁLNÍ PARTNER — раздел идеального партнёра
+   ============================================ */
+
+/* Главный заголовок раздела */
+.ideal-partner-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.ideal-partner-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ideal-partner-card h2::before {
+  content: "PARTNER";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Подзаголовки "V plusu", "V minusu", "Pro harmonické vztahy je důležité" */
+.ideal-partner-card .program-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 56px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.ideal-partner-card .program-title::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Первый подзаголовок — без верхнего отступа */
+.ideal-partner-card .program-found-item:first-of-type .program-title {
+  margin-top: 16px;
+}
+
+/* Воздух между блоками */
+.ideal-partner-card .program-found-item + .program-found-item {
+  margin-top: 8px;
+}
+/* ============================================
+   PRŮVODCE ŽIVOTEM — раздел "Průvodce životem pro vás"
+   ============================================ */
+
+/* Главный заголовок раздела */
+.life-guide-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.life-guide-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.life-guide-card h2::before {
+  content: "PRŮVODCE";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Между блоками энергий внутри гида — тонкая разделительная линия */
+.life-guide-card .program-found-item + .program-found-item {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+/* ============================================
+   ŽIVOTNÍ OBDOBÍ — карточки энергий внутри прогноза
+   ============================================ */
+
+/* Заголовок энергии "21 energie", "10 energie" — крупный сериф по центру */
+.forecast-energy-card h3 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.forecast-energy-card h3::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Воздух между энергиями внутри одного периода */
+.forecast-energy-card + .forecast-energy-card {
+  margin-top: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* "Období: 28,5-29 let" — заголовок периода — оставляем красивым,
+   уже есть .program-title в periodForecast — но добавим воздух вокруг */
+.period-forecast-card .program-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 64px;
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.period-forecast-card .program-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Первый период — без верхнего огромного отступа */
+.period-forecast-intro + .period-forecast-card .program-title {
+  margin-top: 16px;
+}
+/* ============================================
+   ZDRAVÍ — раздел здоровья по чакрам
+   ============================================ */
+
+/* Главный заголовок раздела */
+.health-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.health-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.health-card h2::before {
+  content: "ZDRAVÍ";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Каждая чакра — отдельный блок с воздухом и разделителем */
+.health-frame-item {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line-soft);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.health-card .health-frame-item:first-of-type {
+  margin-top: 16px;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Название чакры — Sahasrára / Mise, Ádžna / Osud */
+.health-frame-item h3 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  position: relative;
+  letter-spacing: 0.005em;
+}
+
+.health-frame-item h3::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Список органов "Mozek, vlasy, horní část lebky" — мелкая бронзовая надпись */
+.health-frame-item .health-body-part {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+/* Карточки энергий внутри чакры */
+.health-frame-item .health-energy-card {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.health-frame-item .health-frame-text + .health-values-grid .health-energy-card:first-of-type {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Заметка про программу внутри чакры — отступ */
+.health-frame-item .local-program-note {
+  margin-top: 40px;
+}
+/* ============================================
+   ZDRAVÍ — улучшение иерархии внутри чакры
+   ============================================ */
+
+/* Расшифровка чакры (общий текст про неё) — чуть приглушённее */
+.health-frame-item .health-frame-text {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.health-frame-item .health-frame-text p {
+  margin-bottom: 14px;
+}
+
+/* Подзаголовки внутри расшифровки чакры — компактнее */
+.health-frame-item .health-frame-text .health-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.health-frame-item .health-frame-text .health-subtitle:first-child {
+  margin-top: 8px;
+}
+
+/* Карточки энергий под чакрой — каждая своим островком */
+.health-frame-item .health-values-grid {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--accent-bronze);
+  position: relative;
+}
+
+.health-frame-item .health-values-grid::before {
+  content: "ENERGIE TÉTO ČAKRY";
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  background: var(--bg-page);
+  padding: 0 16px;
+  margin-top: -48px;
+  margin-bottom: 32px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Каждая карточка энергии — с лёгкой бронзовой полоской слева */
+.health-frame-item .health-energy-card {
+  margin-top: 24px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.4);
+  border-left: 2px solid var(--accent-bronze);
+  border-top: none;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.health-frame-item .health-energy-card:first-child {
+  margin-top: 0;
+}
+
+.health-frame-item .health-energy-card p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Подзаголовок OSOBNÍ DOPORUČENÍ внутри карточки энергии — крупнее, как метка */
+.health-frame-item .health-energy-card .health-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+/* ============================================
+   ŽIVOTNÍ OBDOBÍ A PROGNÓZA — главный заголовок раздела
+   ============================================ */
+
+.period-forecast-intro h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.period-forecast-intro h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.period-forecast-intro h2::before {
+  content: "PROGNÓZA";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+/* ============================================
+   PROGRAMY — главный заголовок раздела программ
+   ============================================ */
+
+.programs-full-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.programs-full-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.programs-full-card h2::before {
+  content: "PROGRAMY";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+/* ============================================
+   OSOBNÍ VLASTNOSTI — главный заголовок раздела
+   ============================================ */
+
+.personal-section-card h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.personal-section-card h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--accent-bronze);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.personal-section-card h2::before {
+  content: "VLASTNOSTI";
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--accent-bronze);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+/* ============================================
+   COVER FINAL
+   Обложка с матрицей и нежной облачной дымкой
+   ============================================ */
+
+.cover-section {
+  position: relative;
+  width: 100%;
+  height: 1123px;
+  padding: 32px 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cover-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 26px;
+}
+
+.cover-section h1 {
+  font-family: var(--font-serif);
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--text-main);
+  margin: 0;
+  text-align: center;
+}
+
+.cover-section h1::after {
+  display: none !important;
+}
+
+.cover-divider {
+  width: 52px;
+  height: 1px;
+  background: var(--accent-bronze);
+  margin: 24px auto 26px;
+}
+
+/* Матрица на обложке */
+.cover-matrix {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.cover-matrix .matrix-chart-section {
+  margin: 0;
+  padding: 0;
+}
+
+.cover-matrix .matrix-chart-section h2 {
+  display: none !important;
+}
+
+.cover-matrix .matrix-chart-wrap {
+  width: 610px;
+  max-width: 610px;
+  margin: 0 auto;
+}
+
+.cover-matrix .matrix-svg {
+  width: 610px;
+  height: 610px;
+  display: block;
+}
+
+/* Имя и дата под матрицей */
+.cover-client {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.cover-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.cover-name-text {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.cover-name-flourish {
+  width: 45px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.cover-date {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+/* Скрываем лишнее внутри матрицы на обложке */
+.cover-matrix .matrix-summary {
+  display: none !important;
+}
+
+/* Облачная дымка */
+.cover-cloud {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(28px);
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 25% 45%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.5) 34%, rgba(255, 255, 255, 0) 68%),
+    radial-gradient(circle at 55% 35%, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.42) 30%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(circle at 78% 55%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.35) 28%, rgba(255, 255, 255, 0) 64%);
+}
+
+.cover-cloud-1 {
+  width: 420px;
+  height: 150px;
+  left: -90px;
+  top: 170px;
+  transform: rotate(-8deg);
+  opacity: 0.38;
+}
+
+.cover-cloud-2 {
+  width: 500px;
+  height: 170px;
+  right: -130px;
+  top: 250px;
+  transform: rotate(7deg);
+  opacity: 0.34;
+}
+
+.cover-cloud-3 {
+  width: 520px;
+  height: 190px;
+  left: -150px;
+  bottom: 190px;
+  transform: rotate(9deg);
+  opacity: 0.34;
+}
+
+.cover-cloud-4 {
+  width: 460px;
+  height: 160px;
+  right: -120px;
+  bottom: 120px;
+  transform: rotate(-6deg);
+  opacity: 0.32;
+}
+
+.cover-cloud-5 {
+  width: 360px;
+  height: 130px;
+  left: 50%;
+  top: 430px;
+  transform: translateX(-50%) rotate(2deg);
+  opacity: 0.22;
+}
+/* ============================================
+   COMPACT PDF TEXT LAYOUT
+   Делаем текст уже, компактнее и дороже визуально
+   ============================================ */
+
+/* Главная ширина текстового контента */
+.energy-text,
+.program-full-text,
+.purpose-text,
+.health-text,
+.period-forecast-text,
+.personal-section-card .energy-text,
+.programs-full-card .energy-text,
+.karmic-tail-card .energy-text {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Обычные абзацы */
+.energy-text p,
+.program-full-text p,
+.purpose-text p,
+.health-text p,
+.period-forecast-text p {
+  font-size: 14.5px;
+  line-height: 1.62;
+  margin-bottom: 11px;
+}
+
+/* Длинные карточки делаем компактнее */
+.programs-card {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+/* Заголовки не должны съедать полстраницы */
+.program-title {
+  margin-bottom: 18px;
+}
+
+.block-subtitle,
+.inline-subtitle {
+  margin-top: 22px;
+  margin-bottom: 8px;
+}
+
+/* Большие декоративные заголовки внутри текста */
+span.section-heading {
+  margin-top: 34px;
+  margin-bottom: 18px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+
+/* Убираем чрезмерные пустоты между крупными блоками */
+.energy-item.programs-card {
+  margin-bottom: 38px;
+  padding-top: 24px;
+}
+
+.energy-item.programs-card + .energy-item.programs-card {
+  padding-top: 38px;
+}
+
+/* Таланты и сценарий тоже компактнее */
+.talents-card h2,
+.life-scenario-card h2 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  padding-bottom: 24px;
+}
+
+.talents-card .program-title {
+  margin-top: 42px;
+  margin-bottom: 18px;
+}
+
+.talent-application {
+  margin-top: 18px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+/* Жизненный сценарий сейчас слишком разреженный */
+.life-scenario-card .energy-text p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+
+.life-scenario-card .scenario-subtitle {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
